@@ -1,0 +1,42 @@
+[connect]
+# 远程服务器ip
+ip = "127.0.0.1"
+
+# 远程服务器端口
+# 所有服务器ssh连接的默认端口为 [`22`]
+port = 22
+
+# 远程服务器登录用户名
+username = "root"
+
+# 远程服务器登录密码
+password = "root"
+
+[path]
+# 要上传的jar包名称, 服务器和本地的需要一致
+file_name = "user-0.0.1-SNAPSHOT.jar"
+
+# 输出文件名称
+out_file_name = "nohup.out"
+
+# 需要上传jar包的绝对路径 (本地)
+local_path = "/"
+
+# jar包需要上传到服务器的绝对路径 (服务器)
+remote_path = "/"
+
+
+[flag]
+# 是否备份之前的文件
+# true 备份, 备份格式为 jar包名称_日期时间.bak
+# false 不备份, 直接删除服务器上已有的jar包
+is_backup = false
+
+# 是否添加后缀, 和 [`environment`] 配置联合使用
+# true 添加后缀 执行的命令为 [`java -jar xxx.jar --spring.profiles.active=xxx`]
+# false 不添加后缀 执行的命令为 [`java -jar xxx.jar`]
+is_join = false
+
+# java -jar 启动命令添加的后缀
+# 类似于 [`--spring.profiles.active=pro`] [`--spring.profiles.active=dev`]
+environment = "--spring.profiles.active=pro"
